@@ -1,5 +1,10 @@
 # imports are needed to get secondary functions like a timer or operating systems
-import os, pathlib, random, time, ctypes, schedule
+import ctypes
+import os
+import pathlib
+import random
+import schedule
+import time
 
 WALLPAPER_FOLDER = "wallpapers"
 
@@ -11,7 +16,7 @@ def get_filenames_from_directory(folder_location):
 
 
 def set_wallpaper():
-    # gets random file in folder
+    # gets random file from folder
     wallpaper = get_filenames_from_directory(WALLPAPER_FOLDER)
     random_wallpaper = random.choice(wallpaper)
     full_wallpaper_path = os.path.join(pathlib.Path().absolute(), WALLPAPER_FOLDER, random_wallpaper)
@@ -22,7 +27,7 @@ def set_wallpaper():
 
 def run():
     timer = int(input("seconds between each change: "))
-    # setup a schedule to change wallpaper every "time per second"
+    # schedule to change wallpaper every "time per second"
     schedule.every(timer).seconds.do(set_wallpaper)
     while True:
         schedule.run_pending()
