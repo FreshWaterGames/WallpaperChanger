@@ -26,12 +26,12 @@ def set_wallpaper():
 
 
 def run():
-    timer = int(input("seconds between each change: "))
     # schedule to change wallpaper every "time per second"
-    schedule.every(timer).seconds.do(set_wallpaper)
+    schedule.every(int(timer)).seconds.do(set_wallpaper)
     while True:
         schedule.run_pending()
         time.sleep(1)
 
 
+timer = input("Enter seconds per change >>")
 run()
