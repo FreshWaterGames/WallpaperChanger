@@ -6,7 +6,7 @@ import time
 import schedule
 from datetime import datetime
 
-now = (datetime.now()).strftime("%H")
+
 
 
 def set_wallpaper(x):
@@ -15,21 +15,21 @@ def set_wallpaper(x):
     print(full_wallpaper_path)
     # change the desktop wallpaper
     ctypes.windll.user32.SystemParametersInfoW(20, 0, full_wallpaper_path, 0)
-    print("set wallpaper")
+    print("Wallpaper Set")
 
 
 def dynamic():
+    now = (datetime.now()).strftime("%H")
     set_wallpaper(now)
 
 
 def run():
     print("running")
     # schedule to check if wallpaper should change every hour
-    schedule.every(30).minutes.do(dynamic)
+    schedule.every(15).minutes.do(dynamic)
     while True:
         schedule.run_pending()
         time.sleep(1)
 
 wallpaper_path = input("Enter path to image folder >>")
-dynamic()
 run()

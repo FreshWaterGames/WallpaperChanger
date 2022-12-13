@@ -20,7 +20,7 @@ def set_wallpaper():
     full_wallpaper_path = os.path.join(pathlib.Path().absolute(), str(wallpaper_path), random_wallpaper)
     # change the desktop wallpaper
     ctypes.windll.user32.SystemParametersInfoW(20, 0, full_wallpaper_path, 0)
-    print("set wallpaper")
+    print("Wallpaper Set")
 
 
 def run():
