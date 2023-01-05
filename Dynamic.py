@@ -7,8 +7,6 @@ import schedule
 from datetime import datetime
 
 
-
-
 def set_wallpaper(x):
     # gets file from folder
     full_wallpaper_path = os.path.join(pathlib.Path().absolute(), str(wallpaper_path), str(x + ".png"))
@@ -30,6 +28,7 @@ def run():
     while True:
         schedule.run_pending()
         time.sleep(1)
+
 
 wallpaper_path = input("Enter path to image folder >>")
 run()
